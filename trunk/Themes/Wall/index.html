@@ -1,0 +1,115 @@
+<include file="../Public/pghead"/>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+<title>{&SITE_NAME} | {$Think.lang.index_pagename|sprintf=###,$title}</title>
+<include file="../Public/header"/>
+</head>
+<body class="{$browser_id} {&LANG_ID}">
+  <div id="non_footer" >
+    <div id="page_height">
+      <div id="menubar_container">
+      <include file="../Public/menubar"/>
+      </div>
+      <if condition="$userId">
+      <div class="top_wash"> </div>
+      </if>
+      <div id="content" class="clearfix">
+      <div class="UIFullPage_Container">
+        <div class="wall_header clearfix">
+          <if condition="$type eq u">
+            <a href="{:url('','','profile','',array('id'=>$wall['wid']))}">
+          <else />
+            <a href="{:url('','','group','',array('id'=>$wall['wid']))}">
+          </if>
+            <if condition="$userId">
+            <span class="UIRoundedImage  UIRoundedImage_MEDIA UIRoundedImage_LARGE">
+            <else />
+            <span class="UIRoundedImage UIRoundedImage_WHITE UIRoundedImage_LARGE">
+            </if>
+              <if condition="$type eq u">
+              <img alt="" src="{$pic}"/>
+              <else />
+              <img alt="" src="../Public/Images/group_s.jpg"/>
+              </if>
+              <span class="UIRoundedImage_Corners">
+                <if condition="$browser_id eq ie6">
+                  <div class="transparent_png UIRoundedImage_CornersSprite" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Public/Images/UIRoundedImage.png',sizingMethod='scale');"> </div>
+                <else />
+                  <img src="../Public/Images/UIRoundedImage.png" alt="" class="UIRoundedImage_CornersSprite" />
+                </if>
+              </span>
+            </span>
+          </a>
+          <div class="walltitle">{$Think.lang.index_pagename|sprintf=###,$title}</div>
+          <if condition="$type eq g">
+          <div class="walllink">
+            <a href="{:url('','','group','',array('id'=>$wall['wid']))}">{$Think.lang.index_walllink|sprintf=###,$title}</a>
+          </div>
+          </if>
+        </div>
+        <div class="widecolumn">
+          <div id="wall">
+            <if condition="$userId AND $groupAccess neq GUEST AND $groupAccess neq USER_GUEST AND $userRelation neq request">
+            <div id="inputarea">
+              <form action="{:url('insert','Wall')}" method="post" name="form">
+                <textarea name="content"></textarea>
+                <br/>
+                <input type="submit" value="{$Think.lang._ACTION_POST_}"/>
+                <input type="hidden" value="{$type}" name="type"/>
+                <input type="hidden" value="{:url('','','wall','',array('type'=>$type,'id'=>$wall['wid']))}" name="url"/>
+                <input type="hidden" value="{$wall['wid']}" name="wid"/>
+              </form>
+            </div>
+            </if>
+            <div id="posts">
+              <iterate name="wall.list" id="post">
+              <div class="post_item clearfix">
+                <div class="picture">
+                  <a href="{:url('','','profile','app',array('id'=>$post['fromid']))}">
+                    <span class="UIRoundedImage UIRoundedImage_WHITE UIRoundedImage_LARGE">
+                      <img alt="" src="{$post['userInfo']['pic_square']}"/>
+                      <span class="UIRoundedImage_Corners">
+                        <if condition="$browser_id eq ie6">
+                          <div class="transparent_png UIRoundedImage_CornersSprite" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Public/Images/UIRoundedImage.png',sizingMethod='scale');"> </div>
+                        <else />
+                          <img src="../Public/Images/UIRoundedImage.png" alt="" class="UIRoundedImage_CornersSprite" />
+                        </if>
+                      </span>
+                    </span>
+                  </a>
+                </div>
+                <div class="item">
+                  <div class="user">
+                    <a href="{:url('','','profile','app',array('id'=>$post['fromid']))}">{$post['userInfo']['name']}</a> {$Think.lang.wall_wrote}
+                    <br/>
+                    <span class="DateAndTime">{$post['time']|formatDate=###,$userInfo['timezone']}</span>
+                  </div>
+                  <div class="content">{$post['text']|htmlspecialchars|nl2br}</div>
+                  <div class="wallactions">
+                    {$post['action']|implode=' - ',###}
+                  </div>
+                </div>
+              </div>
+              </iterate>
+            </div>
+          </div>
+          <if condition="$wall['count'] gt $wall['listRows']">
+          <div class="footer_bar clearfix">
+            <div class="pagerpro_container">
+              <ul class="pagerpro">
+                {:Pager($wall,$type)}
+              </ul>
+            </div>
+          </div>
+          </if>
+        </div>
+        <div class="adcolumn">
+          {//ad}
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+<include file="../Public/footer"/>
+</body>
+<include file="../Public/pgfoot"/>

@@ -1,0 +1,265 @@
+<include file="../Public/pghead"/>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+<title>{&SITE_NAME} | {$profile['name']}</title>
+<include file="../Public/header"/>
+</head>
+<body class="{$browser_id} {&LANG_ID}">
+  <div id="non_footer" >
+    <div id="page_height">
+      <div id="menubar_container">
+        <include file="../Public/menubar"/>
+      </div>
+      <div class="top_wash"> </div>
+      <div id="content" class="clearfix">
+      <div class="UIFullPage_Container">
+        <div class="narrowcolumn">
+          <div class="picture">
+            <img alt="" src="{$profile['pic_big']|getUserPicture=###,'big'}"/>
+          </div>
+          <div id="profile_actions">
+            <ul>
+            <switch name="userRelation">
+              <case value="me">
+                <li><a href="#">{$Think.lang._action_view_photo_me}</a></li>
+                <li><a href="#">{$Think.lang._action_edit_profile}</a></li>
+              </case>
+              <case value="friend">
+                <li><a href="#">{$Think.lang._action_view_photo_someone|sprintf=###,$profile['name']}</a></li>
+                <li><a href="#">{$Think.lang._action_suggest_friend|sprintf=###,$profile['name']}</a></li>
+                <li><a href="#">{$Think.lang._action_send_message|sprintf=###,$profile['name']}</a></li>
+                <li><a href="#">{$Think.lang._action_poke_someone|sprintf=###,$profile['name']}</a></li>
+              </case>
+              <case value="friendrequest">
+                <li><a href="#">{$Think.lang._action_confirm_friend}</a></li>
+                <li><a href="#">{$Think.lang._action_suggest_friend|sprintf=###,$profile['name']}</a></li>
+                <li><a href="#">{$Think.lang._action_send_message|sprintf=###,$profile['name']}</a></li>
+              </case>
+            </switch>
+            </ul>
+          </div>
+          <div class="roundbox">
+            <div id="user_friends" class="user_friends">
+              <div class="box_header">{$Think.lang._friend_header}</div>
+              <div class="box_subheader clearfix">
+                <span class="subheader">
+                  {$friendSubheader}
+                </span>
+                <if condition="$currentUserFriend">
+                <span class="seeall">
+                  <a href="{:url('','','friends','',array('id'=>$profile['id']))}">{$Think.lang._ACTION_SEEALL}</a>
+                </span>
+                </if>
+              </div>
+              <div class="box_content clearfix">
+                <if condition="$currentUserFriend">
+                  <iterate name="currentUserFriend" id="vo" offset="0" length='6'>
+                  <if condition="$vo['key'] eq 0">
+                    <div class="row clearfix">
+                  </if>
+                  <div class="person">
+                    <a href="{:url('','','profile','',array('id'=>$vo['uid']))}">
+                      <span class="UIRoundedImage UIRoundedImage_WHITE UIRoundedImage_LARGE">
+                        <img alt="" src="{$vo['userInfo']['pic_square']}"/>
+                        <span class="UIRoundedImage_Corners">
+                          <if condition="$browser_id eq ie6">
+                            <div class="transparent_png UIRoundedImage_CornersSprite" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Public/Images/UIRoundedImage.png',sizingMethod='scale');"> </div>
+                          <else />
+                            <img src="../Public/Images/UIRoundedImage.png" alt="" class="UIRoundedImage_CornersSprite" />
+                          </if>
+                        </span>
+                      </span>
+                    </a>
+                    <a href="{:url('','','profile','',array('id'=>$vo['uid']))}">
+                      <span class="user_name">{$vo['userInfo']['name']}</span>
+                    </a>
+                  </div>
+                  <if condition="$vo['key'] eq 2">
+                    </div>
+                  <elseif condition="$vo['id'] eq $friendCount" />
+                    </div>
+                  </if>
+                  </iterate>
+                <elseif condition="$profile['id'] eq $userId" />
+                  <a class="find_friend" href="#findfriends.php">{$Think.lang._friend_find}</a>
+                <else />
+                  <a href="#">{$Think.lang._action_suggest_friend|sprintf=###,$profile['name']}</a>
+                </if>
+              </div>
+            </div>
+            <if condition="$userGroup">
+            <div id="user_groups" class="user_groups">
+              <div class="box_header">{$Think.lang._group_header}</div>
+              <div class="box_content">
+                <ul>
+                <iterate name="userGroup" id="vo">
+                  <li>
+                    <a class="group_name" href="{:url('','','group','',array('id'=>$vo['gid']))}">{$vo['info']['name']}</a>
+                    <if condition="$vo['info']['privacy'] eq SECRET">*</if>
+                  </li>
+                </iterate>
+                </ul>
+              </div>
+            </div>
+            </if>
+          </div>
+          <if condition="$userRelation eq friend">
+          <div class="actions">
+            <a onclick="#">{$Think.lang._action_remove_friend}</a>
+          </div>
+          </if>
+        </div>
+        <div class="widecolumn">
+          <div class="profile_name_and_status">
+            <h2 id="profile_name">{$profile['id']|getUserName}</h2>
+{/*
+            <div class="mobile_status">
+              <span id="profile_status">
+                <span id="status_text"> is nothing</span>
+                <small>
+                  <span id="status_time">
+                    <span id="status_time_inner">a moment ago</span>
+                    <a class="status_edit">clear</a>
+                  </span>
+                </small>
+              </span>
+            </div>
+*/}
+          </div>
+          <div class="tab_menu">
+            <ul>
+              <li>Info</li>
+            </ul>
+          </div>
+          <div class="basic_info clearfix">
+            <span class="info_header">Basic</span>
+            <dl>
+              <dt>Fullname</dt>
+              <dd>{$profile['id']|getUserName}</dd>
+              <dt>Sex</dt>
+              <dd>{$profile['sex']}</dd>
+{/*
+              <dt>Birthday</dt>
+              <dd>1980-07-31 </dd>
+*/}
+            </dl>
+          </div>
+{/*
+          <div id="mini_feed">
+            <div class="box_header">Mini-feed</div>
+            <div class="box_subheader">Displaying User1's latest news</div>
+            <div class="box_content">
+            
+            
+              <!-- feed comment -->
+              <div class="feed clearfix">
+                <div class="feed_icon">
+                  <img class="spritemap_icons sx_comment" src="../Public/Images/spacer.gif"/>
+                </div>
+                <div class="feed_story">
+                  <div class="story_header">
+                    <a href="profile.php?id=1">User1</a> commented on <a href="profile.php?id=2">User2</a>'s photo.
+                    <span class="story_time">February 2</span>
+                  </div>
+                  <div class="story_body">
+                    <div class="photo_border">
+                      <a href="photo.php?id=46"><img alt="" src="../Public/Images/group_m.jpg"/></a>
+                    </div>
+                    <div class="story_quote">
+                      <span class="em">Comments...</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+          
+              <!-- feed wall -->
+              <div class="feed clearfix">
+                <div class="feed_icon">
+                  <img class="spritemap_icons sx_wall" src="../Public/Images/spacer.gif"/>
+                </div>
+                <div class="feed_story">
+                  <div class="story_header">
+                    <a href="group.php?id=1">User2</a> wrote on <a href="group.php?id=2">User2</a>'s wall.
+                    <span class="story_time">2 minutes ago</span>
+                  </div>
+                </div>
+              </div>
+              
+              
+              <!-- feed friends -->
+              <div class="feed clearfix">
+                <div class="feed_icon">
+                  <img class="spritemap_icons sx_friend" src="../Public/Images/spacer.gif"/>
+                </div>
+                <div class="feed_story">
+                  <div class="story_header">
+                    <a href="profile.php?id=1">User1</a> and <a href="profile.php?id=2">User2</a> are now friends.
+                    <span class="story_time">February 2</span>
+                  </div>
+                </div>
+              </div>
+          
+          
+              <!-- feed group -->
+              <div class="feed clearfix">
+                <div class="feed_icon">
+                  <img class="spritemap_icons sx_group" src="../Public/Images/spacer.gif"/>
+                </div>
+                <div class="feed_story">
+                  <div class="story_header">
+                    <a href="profile.php?id=1">User1</a> joined the group <a href="group.php?id=2">Group1</a>.
+                    <span class="story_time">February 2</span>
+                  </div>
+                </div>
+              </div>
+          
+          
+              <!-- feed photo -->
+              <div class="feed clearfix">
+                <div class="feed_icon">
+                  <img class="spritemap_icons sx_photo" src="../Public/Images/spacer.gif"/>
+                </div>
+                <div class="feed_story">
+                  <div class="story_header">
+                    <a href="profile.php?id=1">User1</a> added a new photo.
+                    <span class="story_time">February 21</span>
+                  </div>
+                  <div class="story_body">
+                    <div class="photo_border">
+                      <a href="photo.php?id=46"><img alt="" src="../Public/Images/group_l.jpg"/></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+          
+              <!-- feed translations -->
+              <div class="feed clearfix">
+                <div class="feed_icon">
+                  <img class="spritemap_icons sx_translations" src="../Public/Images/spacer.gif"/>
+                </div>
+                <div class="feed_story">
+                  <div class="story_header">
+                    <a href="profile.php?id=1">User1</a> is now using Fakebook in <a href="editprofile.php">English (US)</a>.
+                    <span class="story_time">February 2</span>
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
+*/}
+          <include file="Wall:mini" />
+        </div>
+        <div class="adcolumn">
+          {//ad}
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+<include file="../Public/footer"/>
+</body>
+<include file="../Public/pgfoot"/>

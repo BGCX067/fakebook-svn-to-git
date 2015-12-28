@@ -1,0 +1,411 @@
+<include file="../Public/pghead"/>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+<title>{&SITE_NAME} | {$Think.lang.index_pagename}</title>
+<include file="../Public/header"/>
+</head>
+<body class="{$browser_id} {&LANG_ID}">
+  <div id="non_footer" >
+    <div id="page_height">
+      <div id="menubar_container">
+<include file="../Public/menubar"/>
+      </div>
+      <div id="content" class="clearfix">
+      <div class="UIFullPage_Container">
+        <div id="home_left_column">
+{/*
+          <div id="home_filter">
+            <div class="UIFilterList UIFilterList_BottomMargin">
+              <div class="UIFilterList_Item UIFilterList_FirstItem UIFilterList_Selected">
+                <a class="UIFilterList_ItemLink" title="News Feed" href="#filter=nf" style="">
+                  <span class="UIFilterList_Icon NewsFeed_Icon"> </span>
+                  <span class="UIFilterList_Icon UIFilterList_EditIcon"> </span>
+                  News Feed
+               </a>
+               <span class="UIFilterList_LoadingIndicator"> </span>
+               <span class="UIFilterList_ItemRight"> </span>
+              </div>
+              <div class="UIFilterList_Item">
+                <a class="UIFilterList_ItemLink" title="Public Profiles" href="#filter=nf" style="">
+                  <span class="UIFilterList_Icon PublicProfiles_Icon"> </span>
+                  <span class="UIFilterList_Icon UIFilterList_EditIcon"> </span>
+                  Public Profiles
+               </a>
+               <span class="UIFilterList_ItemRight"> </span>
+              </div>
+              <div class="UIFilterList_Item">
+                <a class="UIFilterList_ItemLink" title="Network" href="#filter=nf" style="">
+                  <span class="UIFilterList_Icon Network_Icon"> </span>
+                  <span class="UIFilterList_Icon UIFilterList_EditIcon"> </span>
+                  Network
+               </a>
+               <span class="UIFilterList_ItemRight"> </span>
+              </div>
+            </div>
+            <div class="UIFilterList">
+              <div class="UIFilterList_Item UIFilterList_FirstItem">
+                <a class="UIFilterList_ItemLink" title="News Feed" href="#filter=nf" style="">
+                  <span class="UIFilterList_Icon Photo_Icon"> </span>
+                  <span class="UIFilterList_Icon UIFilterList_EditIcon"> </span>
+                  Photos
+               </a>
+               <span class="UIFilterList_ItemRight"> </span>
+              </div>
+              <div class="UIFilterList_Item">
+                <a class="UIFilterList_ItemLink" title="Public Profiles" href="#filter=nf" style="">
+                  <span class="UIFilterList_Icon Video_Icon"> </span>
+                  <span class="UIFilterList_Icon UIFilterList_EditIcon"> </span>
+                  Video
+               </a>
+               <span class="UIFilterList_ItemRight"> </span>
+              </div>
+              <div class="UIFilterList_Item">
+                <a class="UIFilterList_ItemLink" title="Network" href="#filter=nf" style="">
+                  <span class="UIFilterList_Icon Post_Icon"> </span>
+                  <span class="UIFilterList_Icon UIFilterList_EditIcon"> </span>
+                  Links
+               </a>
+               <span class="UIFilterList_ItemRight"> </span>
+              </div>
+              <div class="UIFilterList_Item">
+                <a class="UIFilterList_ItemLink" title="Public Profiles" href="#filter=nf" style="">
+                  <span class="UIFilterList_Icon Note_Icon"> </span>
+                  <span class="UIFilterList_Icon UIFilterList_EditIcon"> </span>
+                  Notes
+               </a>
+               <span class="UIFilterList_ItemRight"> </span>
+              </div>
+              <div class="UIFilterList_Item">
+                <a class="UIFilterList_ItemLink" title="Network" href="#filter=nf" style="">
+                  <span class="UIFilterList_Icon Event_Icon"> </span>
+                  <span class="UIFilterList_Icon UIFilterList_EditIcon"> </span>
+                  Events
+               </a>
+               <span class="UIFilterList_ItemRight"> </span>
+              </div>
+            </div>
+          </div>
+*/}
+          <div id="home_stream">
+            <div class="UIComposer UIComposer_STATE_PIC_OUTSIDE">
+              <a class="UIComposer_Pic" href="profile.php?id=40">
+                <span class="UIRoundedImage UIRoundedImage_WHITE UIRoundedImage_LARGE">
+                  <img alt="" src="{$userInfo['pic_square']|getUserPicture=###,'square'}"/>
+                  <span class="UIRoundedImage_Corners">
+                    <img src="../Public/Images/UIRoundedImage.png" alt="" class="UIRoundedImage_CornersSprite" />
+                  </span>
+                </span>
+              </a>
+              <div class="UIComposer_UIRoundedBox UIRoundedBox_Container clearfix UIRoundedBox_GrayDarkTopBackground">
+                <div class="UIRoundedBox_Box">
+                  <div class="UIRoundedBox_Corner UIRoundedBox_TL">
+                    <div class="UIRoundedBox_Corner UIRoundedBox_TR">
+                      <div class="UIRoundedBox_Corner UIRoundedBox_BL">
+                        <div class="UIRoundedBox_Corner UIRoundedBox_BR">
+                          <div class="UIRoundedBox_Side UIRoundedBox_LS">
+                            <div class="UIRoundedBox_Side UIRoundedBox_RS">
+                              <div class="UIOneOff_Container">
+                                <div class="UIComposer_Content">
+                                  <div class="UIComposer_InputArea">
+                                    <div class="UIComposer_Prompt">
+                                      <label for="c49c24c63572900749748963_input">What's on your mind?</label>
+                                    </div>
+                                    <table class="UIComposer_Table" cellspacing="0" cellpadding="0" border="0">
+                                      <tbody>
+                                        <tr>
+                                          <td class="UIComposer_TDTextArea">
+                                            <div class="UIComposer_TextAreaShadow">
+                                              <textarea id="c49c24c63572900749748963_input" class="UIComposer_TextArea" name="c49c24c63572900749748963_input" style="overflow: hidden;" rows="5"></textarea>
+                                            </div>
+                                          </td>
+                                          <td class="UIComposer_TDButton" rowspan="2">
+                                            <div class="UIComposer_ButtonContainer">
+                                              <input class="UIComposer_Button" type="button" value="Share"/>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="c49c259582c5a13a28710807" class="UIIntentionalStream UIStream">
+            
+            
+            
+              <div id="div_story_26482718214011122_61558172300" class="UIStory UIIntentionalStory actor_517012567 commentable_item no_comments autoexpand_mode collapsed_comments hidden_add_button">
+                <a class="UIIntentionalStory_Pic" href="#">
+                  <span class="UIRoundedImage UIRoundedImage_WHITE UIRoundedImage_LARGE">
+                    <img class="UIRoundedImage_Image" alt="" src="{$userInfo['pic_square']|getUserPicture=###,'square'}"/>
+                    <span class="UIRoundedImage_Corners">
+                      <img class="UIRoundedImage_CornersSprite" alt="" src="../Public/Images/UIRoundedImage.png"/>
+                    </span>
+                  </span>
+                </a>
+                <div class="UIIntentionalStory_Body">
+                  <h3 class="UIIntentionalStory_Message">
+                    <span class="UIIntentionalStory_Names">
+                      <a href="http://www.facebook.com/profile.php?id=517012567&ref=nf">Yang Guang</a>
+                    </span>
+                  </h3>
+                  <div class="UIStoryAttachment">
+                    <div class="UIStoryAttachment_Content">
+                      <div class="UIStoryAttachment_Media UIStoryAttachment_MediaSingle">
+                        <div class="UIMediaItem">
+                          <a href="#">
+                            <div class="UIMediaItem_Wrapper" style="">
+                              <img alt="" src="../Public/Images/silhouette_s.jpg"/>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="UIStoryAttachment_Copy">
+                        Yang drew Graffiti for
+                        <br />
+                        <a  href="http://apps.facebook.com/graffitiwall/by.php?from_id=517012567">More graffiti by you</a>
+                        |
+                        <a  href="http://apps.facebook.com/graffitiwall/draw.php?to_id=517012567">Draw for Yang</a>
+                        |
+                        <a  href="http://apps.facebook.com/graffitiwall/draw.php?to_id=517012567">Draw for Yang</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="UIIntentionalStory_Info UIIntentionalStory_AttachmentInfo">
+                    <a href="http://www.facebook.com/apps/application.php?id=2439131959">
+                      <div class="UIIntentionalStory_Icon">
+                        <img alt="" src="http://photos-h.ak.fbcdn.net/photos-ak-sf2p/v43/19/2439131959/app_2_2439131959_1091.gif"/>
+                      </div>
+                    </a>
+                    <div class="UIIntentionalStory_InfoText UIIntentionalStory_InfoTextIndented">
+                      <span class="UIIntentionalStory_Time">Posted 23 hours ago</span>
+                      ·
+                      <span class="action_links_bottom">
+                        <a class="">Comment</a>
+                        <span class="action_link_dash action_link_dash_1"> · </span>
+                        <span class="like_link like_not_exists">
+                          <a class="like_component_not_exists">Like</a>
+                          <a class="like_component_exists">Unlike</a>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                  <div id="comments_box_26482718214011122" class="comment_box">
+                    <div id="feed_comments_target_26482718214011122_61558172300" class="target_comments selected_target_comments">
+                      <div id="like_box_26482718214011122_61558172300" class="like_box like_exists has_likes" style="display: block; height: auto;">
+                        <div class="wallpost">
+                          <div class="like_sentence_container">
+                            <div class="like_sentence like_sentence_exists like_component_exists">
+                              <a class="like_box_thumb_icon" onclick="#"></a>
+                              You like this.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="feed_comments_26482718214011122_61558172300" class="wall_posts"></div>
+                      <form id="add_comment_26482718214011122_61558172300" name="add_comment_26482718214011122_61558172300" action="/minifeed.php" method="post">
+                        <input type="hidden" value="€,´,€,´,水,Д,Є" name="charset_test"/>
+                        <input id="post_form_id" type="hidden" value="7bd7fd2694a5b1b2a4807542e8ec9aa2" name="post_form_id"/>
+                        <div id="comments_add_26482718214011122_61558172300" class="wallpost comment_add_row">
+                          <div class="comments_add_box">
+                            <div id="add_comment_wrapper_26482718214011122_61558172300" class="wallcommentbox one_row_add_box clearfix">
+                              <div class="comments_add_box_image">
+                                <span class="UIRoundedImage UIRoundedImage_GIRLIE UIRoundedImage_SMALL">
+                                  <img class="UIRoundedImage_Image" alt="" src="{$userInfo['pic_square']|getUserPicture=###,'square'}"/>
+                                  <span class="UIRoundedImage_Corners">
+                                    <img class="UIRoundedImage_CornersSprite" alt="" src="../Public/Images/UIRoundedImage.png"/>
+                                  </span>
+                                </span>
+                              </div>
+                              <textarea id="add_comment_text_26482718214011122_61558172300" class="DOMControl_autogrow DOMControl_placeholder" name="add_comment_text_26482718214011122_61558172300" style="overflow: hidden; height: 29px;" title="Write a comment...">Write a comment...</textarea>
+                            </div>
+                            <div class="inline_comment_buttons clearfix">
+                              <div class="comments_add_box_submit">
+                                <input id="submit_comment_26482718214011122_61558172300" class="inputsubmit inputsubmit" type="submit" value="Comment" name="submit_comment_26482718214011122_61558172300"/>
+                              </div>
+                              <div class="comments_add_box_controls"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+        <div id="home_sidebar">
+          <div class="UIOneOff_Container">
+            <div class="UIHomeBox">
+              <div class="UIHomeBox_Top">
+                <div class="UIHomeBox_TitleBar">
+                  <span class="UIHomeBox_Title">Requests</span>
+                </div>
+                <div class="UIHomeBox_More">
+                  <small><a class="UIHomeBox_MoreLink" href="/reqs.php">See All</a></small>
+                </div>
+              </div>
+              <div class="UIHomeBox_Content">
+                <div class="UIRequestsBox_Short UIRequestsBox UIRequestsBox_Short">
+                  <span class="UIRequestsBox_Request UIRequestsBox_RequestFirst UIRequestsBox_RequestOdd">
+                    <img class="spritemap_icons sx_friend" src="../Public/Images/spacer.gif?8:11"/>
+                    <a class="request_link" href="/reqs.php#friend">
+                      <span id="friend_add_sidebar_text"><strong>1</strong> friend request</span>
+                    </a>
+                  </span>
+                  <span class="UIRequestsBox_Request UIRequestsBox_RequestSecond">
+                    <img class="spritemap_icons sx_group" src="../Public/Images/spacer.gif?8:11"/>
+                    <a class="request_link" href="/reqs.php#group">
+                      <span id="group_invite_sidebar_text"><strong>1</strong> group invitation</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="UIHomeBox">
+            <div class="UIHomeBox_Top">
+              <div class="UIHomeBox_TitleBar">
+                <span class="UIHomeBox_Title">Highlights</span>
+              </div>
+            </div>
+            <div class="UIHomeBox_Content">
+              <div class="UIHotStream UIStream">
+              
+              
+                <div id="home_sponsor_nile" class="UIHotStory_First UIHotStory emu_sponsor">
+                  <div id="emu_6002249142734" class="emu_ad">
+                    <div id="emu_6002249142734_2">
+                      <div id="c49c276ae082631a90019158" class="UIHotStory UIHotStory_Ad UIHotStory_Medium">
+                        <div class="UIHotStory_Icon">
+                          <img class="spritemap_icons sx_ad" src="../Public/Images/spacer.gif?8:11"/>
+                        </div>
+                        <div class="UIHotStory_Title">
+                          <a class="ad_title" href="#">与更多的朋友联络</a>
+                        </div>
+                        <div class="UIHotStory_Media">
+                          <div class="UIMediaItem">
+                            <a class="UIMediaItem" href="#">
+                              <img alt="" src="http://creative.ak.facebook.com/ads3/flyers/12/12/6002249135534_4_38919a8e.png"/>
+                            </a>
+                          </div>
+                          <div class="UIHotStory_Sponsored">
+                            <span class="sponsored">Sponsored</span>
+                            <div class="ads_feedback">
+                              <a class="thumbs_up" title="Like this ad" href="#"> </a>
+                              <a class="thumbs_dn" title="Dislike this ad" href="#"> </a>
+                              <a class="next_ad" title="Next Ad" href="#"> </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="UIHotStory_Body">
+                          <div class="UIHotStory_Copy"> 邀请更多朋友加入Facebook，赶快利用我们的简易工具上传你的雅虎、Gmail、Windows Live Hotmail、美国在线或MSN即时通好友名单，和朋友们取得联系。</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="emu_6002249142734_3"></div>
+                  </div>
+                </div>
+
+
+                <div id="c49c270812b38a1e76529107" class="UIHotStory UIHotStory_Small">
+                  <div class="UIHotStory_Media">
+                    <div class="UIMediaItem">
+                      <a href="http://www.facebook.com/group.php?gid=75478711440&ref=nf">
+                        <div class="UIMediaItem_Wrapper" style="height: 56px; width: 75px;">
+                          <img style="width: 75px;" alt="" src="http://profile.ak.facebook.com/object3/528/83/s75478711440_3617.jpg"/>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="UIHotStory_Body">
+                    <div class="UIHotStory_Icon">
+                      <img class="spritemap_icons sx_group" src="../Public/Images/spacer.gif?8:11"/>
+                    </div>
+                    <div class="UIHotStory_Title">
+                      <a title="*Marshall Bright is a Girl * Elect Marshall Bright to UA *" href="http://www.facebook.com/group.php?gid=75478711440&ref=nf">*Marshall Bright is a Girl * Elect Marshall B...</a>
+                    </div>
+                    <div class="UIHotStory_Why">
+                      <a href="http://www.facebook.com/profile.php?id=1069273378&ref=nf">Marshall Yang Heng</a> joined.
+                    </div>
+                    <div class="UIHotStory_Actions"></div>
+                  </div>
+                </div>
+                
+                
+                <div id="c49c270812b38a1e76529107" class="UIHotStory UIHotStory_Small">
+                  <div class="UIHotStory_Media">
+                    <div class="UIMediaItem">
+                      <a href="http://www.facebook.com/group.php?gid=75478711440&ref=nf">
+                        <div class="UIMediaItem_Wrapper" style="height: 56px; width: 75px;">
+                          <img style="width: 75px;" alt="" src="http://profile.ak.facebook.com/object3/528/83/s75478711440_3617.jpg"/>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="UIHotStory_Body">
+                    <div class="UIHotStory_Icon">
+                      <img class="spritemap_icons sx_group" src="../Public/Images/spacer.gif?8:11"/>
+                    </div>
+                    <div class="UIHotStory_Title">
+                      <a title="*Marshall Bright is a Girl * Elect Marshall Bright to UA *" href="http://www.facebook.com/group.php?gid=75478711440&ref=nf">*Marshall Bright is a Girl * Elect Marshall B...</a>
+                    </div>
+                    <div class="UIHotStory_Why">
+                      <a href="http://www.facebook.com/profile.php?id=1069273378&ref=nf">Marshall Yang Heng</a> joined.
+                    </div>
+                    <div class="UIHotStory_Actions"></div>
+                  </div>
+                </div>
+                
+                
+              </div>
+            </div>
+          </div>
+          <div class="UIConnectWithFriends UIHomeBox">
+            <div class="UIHomeBox_Top">
+              <div class="UIHomeBox_TitleBar">
+                <span class="UIHomeBox_Title">Connect With Friends</span>
+              </div>
+            </div>
+            <div class="UIHomeBox_Content">
+              <div class="UIUpcoming_Item UIUpcoming_FirstItem">
+                <div class="UIUpcoming_Icon">
+                  <a href="/invite.php?ref=sb">
+                    <img class="spritemap_icons sx_invite" src="../Public/Images/spacer.gif?8:11"/>
+                  </a>
+                </div>
+                <div class="UIUpcoming_Info">
+                  <a href="/invite.php?ref=sb">Invite friends to join Facebook.</a>
+                </div>
+              </div>
+              <div class="UIUpcoming_Item">
+                <div class="UIUpcoming_Icon">
+                  <img class="spritemap_icons sx_friend_finder" src="../Public/Images/spacer.gif?8:11"/>
+                </div>
+                <div class="UIUpcoming_Info">
+                  To find people you know who are already using Facebook, check out the <a href="#findfriends">Friend Finder</a> .
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+<include file="../Public/footer"/>
+</body>
+<include file="../Public/pgfoot"/>

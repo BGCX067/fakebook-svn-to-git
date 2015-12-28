@@ -1,0 +1,105 @@
+a, body, br, div, fieldset, form, h1, h2, h3, h4, h5, h6, html, hr, img, input, label, legend, li, p, ul, table, tr, th, td, p, span{margin: 0px;padding: 0px;}
+fieldset{border: 0px; background: none;}
+legend{display: none;}
+html, body {height: 100%;}
+body{font-family:"lucida grande", tahoma, verdana, arial, sans-serif;text-align:center;font-size:11px;}
+.en {font-size:11px;}
+.zh {font-size:12px;}
+h1, h2, h3, h4, h5, h6 {font-size:11px;color:#333;}
+.zh h1,.zh h2,.zh h3,.zh h4,.zh h5,.zh h6 {font-size:12px;}
+img{border: 0px;}
+a{cursor:pointer;-moz-outline-style:none;text-decoration:none;color:#3b5998;}
+a:hover{text-decoration: underline;}
+input,select{font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-size:11px;vartical-align:center;}
+select{padding:2px;border: solid 1px #1D2A5B;padding:3px;}
+label{color:#666;cursor:pointer;font-weight:bold;vertical-align:middle;}
+.clearfix{display: inline-block;} html[xmlns] .clearfix{display: block;} *html .clearfix{height: 1%;} .clearfix:after{content: ".";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;}
+.ie6 .clearfix {display:inline-block;}
+ul,li {list-style:none;}
+table {padding:0 0 7px;}
+table tr {height:25px}
+table tr td {font-size:11px;}
+
+.inputtext,.inputpassword {width:140px;padding:3px;border: solid 1px #BDC7D8;padding:3px;}
+.ie6 .inputtext,.ie6 .inputpassword {height:21px;}
+.inputbutton, .inputsubmit {background-color:#3B5998;border-color:#D9DFEA #0E1F5B #0E1F5B #D9DFEA;border-style:solid;border-width:1px;color:#FFFFFF;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-size:11px;padding:2px 15px 3px;text-align:center;}
+.UILinkButton,.UILinkButton_RW {float:left;height:22px;padding:0;position:relative;z-index:1;}
+.UILinkButton_A {background:transparent url([theme_url]/Images/UILinkButton_Blue.gif) no-repeat scroll left top;border:0 none;color:white;cursor:pointer;float:left;font-size:11px;font-weight:bold;height:22px;margin:0;padding:3px 9px 3px 12px;position:relative;}
+.ff3 .UILinkButton .UILinkButton_A {padding:2px 5px 6px 8px;}
+.UILinkButton_R {background:transparent url([theme_url]/Images/UILinkButton_Blue.gif) no-repeat scroll -248px 0;height:27px;position:absolute;right:0;top:0;width:2px;left:0;}
+.UILinkButton_SU .UILinkButton_A,.UILinkButton_SU .UILinkButton_R {background-image:url([theme_url]/Images/UILinkButton_Green.gif);}
+
+#non_footer {min-height:100%;position:relative;height:auto !important;height:100%;}
+#page_height {padding-bottom:100px;}
+#page_height #menubar_container {width:964px;margin:0 auto;}
+#page_height #content {margin:0;padding:0;width:auto;_width:100%;}
+#page_height #content .UIFullPage_Container {width:940px;margin:0 auto;padding:20px 12px 0;text-align:left;}
+.ie6 #page_height #content .UIFullPage_Container {width:964px;}
+
+#menubar_container {background:transparent url([theme_url]/Images/signup_callout.png) no-repeat scroll left bottom;display:block;line-height:normal;margin:0 auto;padding:0;position:relative;width:964px;z-index:1;}
+#menubar_container .menubar_logged_in {height:29px;background:transparent url('[theme_url]/Images/menubar_background.gif') 0 -71px no-repeat;}
+#menubar_container .menubar_logged_in #logobar {width:90px;float:left;padding:5px 0 5px 10px;}
+#menubar_container .menubar_logged_in #logobar .home {width:90px;height:17px;display:block;background:transparent url('[theme_url]/Images/menubar_logo.gif') 0 0 no-repeat;}
+#menubar_container .menubar_logged_in #logobar .home:hover {background-position:0 -17px;}
+
+#menu_login_container {width:500px;float:right;margin:28px 18px 0 0;font-size:11px;}
+#menu_login_container table {float:right;}
+#menu_login_container table tr {height:18px;}
+#menu_login_container table tr td {padding:0 0 0 16px;text-align:right;}
+#menu_login_container .login_form_label_field {padding-bottom:3px;}
+#menu_login_container .login_form_label_field label,#menu_login_container a {color:#98A9CA;font-weight:normal;margin:0;padding:0;}
+#menu_login_container .login_form_label_field label input {margin-right:5px;}
+#menu_login_container .inputtext,#menu_login_container .inputpassword {width:140px;padding:3px;border-color:#1D2A5B;}
+
+#main_menu a {display:block;color:#fff;padding:7px 7px 8px 8px;text-decoration:none;font-weight:bold;margin-right:4px;line-height:normal;}
+.zh #main_menu a {font-weight:normal;padding:7px 7px 7px 8px;}
+.zh.ie6 #main_menu a,.zh.ff3 #main_menu a {padding:7px 7px 6px 8px;}
+#account_menu a {display:block;color:#fff;padding:7px 5px 8px;text-decoration:none;margin-right:5px;line-height:normal;}
+.zh #account_menu a {padding:7px 5px;}
+.zh.ie6 #account_menu a,.zh.ff3 #account_menu a  {padding:7px 5px 6px;}
+#main_menu a:hover,#account_menu a:hover {background-color:#5C75AA;}
+#universal_search {padding:3px 11px 3px 4px;width:172px;}
+.ie6 #universal_search {width:187px;}
+#universal_search #universal_search_input {float:left;width:151px;}
+#universal_search #universal_search_input #q {background:white url([theme_url]/Images/fb_menubar_search_shadow.gif) no-repeat scroll left top;border:1px solid #315091;border-right:0;border-width:1px 0 1px 1px;float:left;margin:0;padding:3px 4px;width:143px;}
+.ie6 #universal_search #universal_search_input #q {width:151px;}
+#universal_search #universal_search_submit {float:left;width:21px;}
+#universal_search #universal_search_submit a {background:#6D84B4 url([theme_url]/Images/search_input_gloss.gif) repeat-x scroll center top;border:1px solid #315091;display:block;font-size:11px;margin:0;padding:0;text-decoration:none;width:19px;height:19px;}
+.ie6 #universal_search #universal_search_submit a {width:21px;}
+#universal_search #universal_search_submit a span {background:transparent url([theme_url]/Images/search_glass.gif) no-repeat scroll 0 70%;display:block;margin:0;padding:3px 0;height:13px;}
+#main_menu .main_menu {float:left;}
+#account_menu .account_menu {float:right;}
+
+#menubar_container .menubar_logged_out {height:83px;background:transparent url('[theme_url]/Images/menubar_background.gif') 0 -17px no-repeat;}
+#menubar_container .menubar_logged_out #logobar {width:170px;float:left;margin:31px 0 0 18px;}
+#menubar_container .menubar_logged_out #logobar .home {width:170px;height:36px;display:block;background:transparent url('[theme_url]/Images/menubar_logo_big.gif') 0 0 no-repeat;}
+#menubar_container .signup_box {clear:left;color:#203360;display:block;font-size:13px;font-weight:bold;line-height:normal;padding:14px 22px;}
+#menubar_container .signup_box_message {display:block;float:left;padding:3px 14px;}
+
+#page_footer {width:964px;margin: -60px auto 0;position:relative;border-top:1px solid #DDD;padding:6px 0;font-size:11px;color:#777;}
+#page_footer .copyright_and_location,#page_footer .language {float:left;padding-right:10px;}
+#page_footer .page_footer_links,.page_footer_links li {float:right;}
+#page_footer .page_footer_links li {padding:0 5px;}
+
+.UIRoundedImage{display:block;background-color:#C4CDE0;overflow:hidden;position:relative;}
+.UIRoundedImage_Image{display:block;position:absolute;background:transparent !important;top:0px;left:0px;vertical-align:middle;overflow:hidden;background:none !important;}
+.UIRoundedImage_Corners{display:block;position:absolute;background:none;top:0px;left:0px;overflow:hidden;width:100%;height:100%;}
+.UIRoundedImage_CornersSprite{display:block;position:absolute;}
+.UIRoundedImage_CornersSprite{background:transparent !important;width:110px !important;height:200px !important;}
+.UIRoundedImage_CornersSprite img{background:transparent !important;width:110px !important;height:200px !important;}
+span.UIRoundedImage_CornersSprite{filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='[theme_url]/Images/UIRoundedImage.png',sizingMethod="scale");}
+.UIRoundedImage_CornersSprite .invisible_png{display:block;width:100%;height:100%;background:transparent url([theme_url]/Images/UIRoundedImage.png)0px 0px no-repeat;}
+.UIRoundedImage_NONE .UIRoundedImage_Corners{display:none;}
+.UIRoundedImage_WHITE .UIRoundedImage_CornersSprite{top:0px;}
+.UIRoundedImage_GIRLIE .UIRoundedImage_CornersSprite{top:-50px;}
+.UIRoundedImage_DARK .UIRoundedImage_CornersSprite{top:-100px;}
+.UIRoundedImage_MEDIA .UIRoundedImage_CornersSprite{top:-150px;}
+.UIRoundedImage_LARGE{width:50px;height:50px;}
+.UIRoundedImage_LARGE .UIRoundedImage_Image{width:50px;height:50px;}
+.UIRoundedImage_SMALL{width:32px;height:32px;}
+.UIRoundedImage_SMALL .UIRoundedImage_Image{width:32px;height:32px;}
+.UIRoundedImage_TINY{width:25px;height:25px;}
+.UIRoundedImage_TINY .UIRoundedImage_Image{width:25px;height:25px;}
+.UIRoundedImage_LARGE .UIRoundedImage_CornersSprite{left:0px;}
+.UIRoundedImage_SMALL .UIRoundedImage_CornersSprite{left:-50px;}
+.UIRoundedImage_TINY .UIRoundedImage_CornersSprite{left:-85px;}

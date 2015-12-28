@@ -1,0 +1,176 @@
+<include file="../Public/pghead"/>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+<title>{&SITE_NAME} | {$groupInfo['name']}</title>
+<include file="../Public/header"/>
+</head>
+<body class="{$browser_id} {&LANG_ID}">
+  <div id="non_footer" >
+    <div id="page_height">
+      <div id="menubar_container">
+      <include file="../Public/menubar"/>
+      </div>
+      <div id="content" class="clearfix">
+        <div class="UIFullPage_Container">
+        <div class="widecolumn">
+          <div class="group_title">
+            <h2>{$groupInfo['name']}</h2>
+            {/* Global */}
+          </div>
+          <div class="group_info_section">
+            <h4>{$Think.lang._info_header}</h4>
+            <dl class="clearfix">
+              <dt>{$Think.lang._info_type}</dt>
+              <dd>
+                <a href="#">{$Think.lang._info_type_student}</a> - <a href="#">{$Think.lang._info_subtype_alumni}</a>
+              </dd>
+              <if condition="$groupInfo['description']">
+              <dt>{$Think.lang._info_description}</dt>
+              <dd>
+                {$groupInfo['description']|htmlspecialchars|nl2br}
+              </dd>
+              </if>
+            </dl>
+{/*
+            <h4>Contact Info</h4>
+            <dl class="clearfix">
+              <dt>Email:</dt>
+              <dd>name@domain.com</dd>
+              <dt>Website:</dt>
+              <dd>http://www.domain.com</dd>
+              <dt>Location:</dt>
+              <dd>Jilin Changchun</dd>
+            </dl>
+*/}
+          </div>
+          <div id="group_members" class="group_members">
+            <div class="box_header">{$Think.lang._member_header}</div>
+            <div class="box_subheader clearfix">
+              <span class="subtitle">{$groupMemberHeader}</span>
+              <if condition="$groupMember AND $groupAccess neq GUEST">
+              <span class="actionlink">
+                <a href="{:url('','','members','',array('id'=>$groupInfo['id']))}">{$Think.lang._ACTION_SEEALL}</a>
+              </span>
+              </if>
+            </div>
+            <div class="box_content clearfix">
+              <ul>
+                <iterate name="groupMemberShuffle" id="vo" offset="0" length='8'>
+                <li>
+                  <a onclick="" href="{:url('','','profile','',array('id'=>$vo['uid']))}">
+                    <span class="UIRoundedImage UIRoundedImage_WHITE UIRoundedImage_LARGE">
+                      <img alt="" src="{$vo['userInfo']['pic_square']}"/>
+                      <span class="UIRoundedImage_Corners">
+                        <if condition="$browser_id eq ie6">
+                          <div class="transparent_png UIRoundedImage_CornersSprite" style="_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Public/Images/UIRoundedImage.png',sizingMethod='scale');"> </div>
+                        <else />
+                          <img src="../Public/Images/UIRoundedImage.png" alt="" class="UIRoundedImage_CornersSprite" />
+                        </if>
+                      </span>
+                    </span>
+                  </a>
+                  <a onclick="" href="{:url('','','profile','',array('id'=>$vo['uid']))}"><span class="user_name">{$vo['userInfo']['name']}</span></a>
+                </li>
+                </iterate>
+              </ul>
+            </div>
+          </div>
+          <include file="Wall:mini" />
+          <div id="photos">
+            <div class="box_header">Photos</div>
+            <div class="box_subheader clearfix">
+              <span class="subtitle">Displaying 5 of <a href="album.php?id=49911">85 photos</a></span>
+              <span class="actionlink">
+                <a href="album.php?id=49911">View All</a>
+              </span>
+            </div>
+            <div id="photos">
+              <div class="item">
+                <a href="photo.php?id=45"><img alt="" src="../Public/Images/group_s.jpg"/></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="narrowcolumn">
+          <div class="picture">
+            <img alt="" src="{$groupInfo['id']|getGroupPicture=###,'big'}"/>
+          </div>
+          <div id="profile_actions">
+            <ul>
+              <switch name="groupAccess">
+                <case value="CREATOR|ADMIN">
+                  <li><a href="#">Message All Members</a></li>
+                  <li><a href="#">Edit Group</a></li>
+                  <li><a href="#">Edit Members</a></li>
+                  <li><a href="#">Edit Group Officers</a></li>
+                  <li><a href="#">Invite People to Join</a></li>
+                  <li><a href="#">Leave Group</a></li>
+                </case>
+                <case value="MEMBER">
+                  <li><a href="#">Message All Members</a></li>
+                  <if condition="$groupInfo['privacy'] eq OPEN">
+                  <li><a href="#">Invite People to Join</a></li>
+                  </if>
+                  <li><a href="#">Leave Group</a></li>
+                </case>
+                <case value="USER_GUEST">
+                  <li><a href="#">Join this Group</a></li>
+                </case>
+                <case value="GUEST">
+                  <li><a href="#">Join this Group</a></li>
+                </case>
+              </switch>
+            </ul>
+          </div>
+          <div class="roundbox">
+            <div class="UIProfileBox_Container">
+              <div class="box_header">{$Think.lang._type_header}</div>
+              <div class="box_content clearfix">
+                <if condition="$groupInfo['privacy'] eq OPEN">
+                  {$Think.lang._type_open}
+                <elseif condition="$groupInfo['privacy'] eq CLOSED" />
+                  {$Think.lang._type_closed}
+                <else />
+                  {$Think.lang._type_secret}
+                </if>
+              </div>
+            </div>
+            <div class="UIProfileBox_Container">
+              <div class="box_header">{$Think.lang._admin_header}</div>
+              <div class="box_content">
+                <ul>
+                  <iterate name="groupMember" id="vo">
+                    <if condition="$vo['title'] eq creator">
+                  <li>
+                    <span>
+                      <a class="group_name" href="{:url('','','profile','',array('id'=>$vo['uid']))}">{$vo['uid']|getUserName}</a> ({$Think.lang._admin_creator})
+                    </span>
+                  </li>
+                    <elseif condition="$vo['title'] eq admin" />
+                  <li>
+                    <span>
+                      <a class="group_name" href="{:url('','','profile','',array('id'=>$vo['uid']))}">{$vo['uid']|getUserName}</a>
+                    </span>
+                  </li>
+                    </if>
+                  </iterate>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <if condition="$groupAccess eq (MEMBER OR USER_GUEST OR GUEST)">
+          <div class="actions">
+            <a onclick="#">{$Think.lang._action_report_group}</a>
+          </div>
+          </if>
+        </div>
+        <div class="adcolumn">
+          {//ad}
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<include file="../Public/footer"/>
+</body>
+<include file="../Public/pgfoot"/>
